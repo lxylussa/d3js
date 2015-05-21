@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+	.chart rect {
+        fill: steelblue;
+        stroke: white;
+    }
+</style>
+<body>
+	<h2>balabala English  --------  letter frequency</h2>
+	<div class="histogram"></div>
+	<div class="bubble"></div>
+	<div class="pie"></div>
+
+	<script src="d3.min.js"></script>
+	<script>
+		var freq=[];
+		var each_total=26;
+		var total=0;
+		freq[26]=0
+		for (var i = 26 - 1; i >= 0; i--) {
+			freq[i]=Math.floor(Math.random() * each_total)+1;
+			total=total+freq[i];
+		};
+		console.log(freq);
+		/******************************************更新数据*******************************************************/
+		function random_num(){
+			var each_total=26;
+			total=0;
+			freq[26]=0
+			for (var i = 26 - 1; i >= 0; i--) {
+				freq[i]=Math.floor(Math.random() * each_total)+1;
+				total=total+freq[i];
+			};
+		}
+
+	    setInterval(function(){
+	        random_num();
+	        console.log(freq);
+	        redraw1();
+	        redraw2();
+	        redraw3();
+	    },5000)
+
+    </script>
+		<script src="histogram.js"></script>
+		<script src="bubble.js"></script>
+		<script src="pie.js"></script>
